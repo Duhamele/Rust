@@ -33,6 +33,24 @@ fn volume_sphere(rayon: f64)->f64{
     let volume: f64=4.0/3.0*std::f64::consts::PI*f64::powf(rayon, 3.0);
     return volume;
 }
+fn is_first(number:i64)->bool{
+    if number<2{
+        return false;
+    }
+    if number==2||number==3{
+        return true;
+    }
+    let mut i=3;
+    while i*i<number {
+        if number%i==0{
+            return false;
+        }
+        i+=2;
+    }
+    return true;
+
+    
+}
 #[test]
 fn test_volume_sphere(){
     let resultat=volume_sphere(5.0);
@@ -50,5 +68,23 @@ fn test_perimetre_cercle() {
         test=true;
     }
     assert_eq!(test,true);
+    
+}
+#[test]
+fn test_is_first() {
+    let mut test=true;
+    if is_first(1){
+        test=false;
+    }
+    if !is_first(2){
+        test=false;
+    }
+    if is_first(15){
+        test=false;
+    }
+    if !is_first(111){
+        test=true
+    }
+    assert_eq!(test,true)
     
 }
