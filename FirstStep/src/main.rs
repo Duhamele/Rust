@@ -37,8 +37,18 @@ fn volume_sphere(rayon: f64)->f64{
 fn test_volume_sphere(){
     let resultat=volume_sphere(5.0);
     let mut vrai=false;
-    if(523.0<resultat && resultat<524.0){
+    if 523.0<resultat && resultat<524.0 {
         vrai=true;
     }
     assert_eq!(vrai,true);
+}
+#[test]
+fn test_perimetre_cercle() {
+    let resultat=perimetre_cercle(1.0);
+    let mut test=false;
+    if 6.2<resultat&&resultat<6.4{
+        test=true;
+    }
+    assert_eq!(test,true);
+    
 }
