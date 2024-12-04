@@ -10,6 +10,8 @@ fn main() {
     println!("Pour une sphére de rayon {} cm",rayon);
     println!("On a une surface de {} cm2",surface_s);
     println!("On a un volume de {} cm3",volume);
+    println!("7 premier?{}",is_first(7));
+    println!("8 premier?{}",is_first(8));
 
 }
 
@@ -34,11 +36,11 @@ fn volume_sphere(rayon: f64)->f64{
     return volume;
 }
 fn is_first(number:i64)->bool{
-    if number<2{
-        return false;
-    }
     if number==2||number==3{
         return true;
+    } 
+    if number<2 || number%2==0{
+        return false;
     }
     let mut i=3;
     while i*i<number {
