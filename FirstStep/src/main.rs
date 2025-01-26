@@ -1,7 +1,7 @@
-pub mod list;
+mod geometry;
+use geometry::{created_carre, Geo};
 
-
-
+use crate::geometry::Carre;
 fn main() {
     let rayon=5.2;
     let perimetre=perimetre_cercle(rayon);
@@ -16,6 +16,12 @@ fn main() {
     println!("On a un volume de {} cm3",volume);
     println!("7 premier?{}",is_first(7));
     println!("8 premier?{}",is_first(8));
+    let carre=Carre{cote:4.0};
+    carre.affiche();
+    let care2=created_carre(8.0);
+    care2.affiche();
+    println!("\tAire :{}\n\tPerimetre :{}",care2.aire(),care2.perimetre());
+    
 
 }
 
