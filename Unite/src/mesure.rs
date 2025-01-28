@@ -30,6 +30,12 @@ Copy,
     pub fn distance(valeur:T)->Mesure<T> {
         Mesure { value: valeur, unite: Unite::DISTANCE }
     }
+    pub fn temps(valeur:T)->Mesure<T> {
+        Mesure{value:valeur,unite: Unite::TEMPS }
+    }
+    pub fn acceleration(valeur:T)->Mesure<T> {
+        Mesure{value:valeur,unite:Unite::ACCELERATION }
+    }
     pub fn get_value(&self)->T{
         return self.value;
     }
@@ -58,13 +64,13 @@ Sub<Output = T> +
 Mul<Output = T> + 
 Div<Output = T> + 
 Copy,  {
+    type Output=Mesure<T>;
     fn sub(self, rhs: Self) -> Self::Output {
         if self.unite!=rhs.unite{
             panic!("Addd");
         }
         Self{value:self.value-rhs.value,unite:self.unite}
     }
-    type Output=Mesure<T>;
 }
 impl <T> Mul for Mesure<T>
 where T: Add<Output = T> +

@@ -30,6 +30,13 @@ mod tests {
     #[should_panic]
     fn test_erreur(){
         let mesure=Mesure::vitesse(5.0);
-        let mesure1=Mesure::distance(8.0)+mesure;
+        let _=Mesure::distance(8.0)+mesure;
+    }
+    #[test]
+    fn test_mult_2(){
+        let mesure=Mesure::distance(5.0);
+        let mesure1=mesure/Mesure::temps(1.0);
+        assert_eq!(mesure1.get_unite(),Unite::VITESSE);
+        assert_eq!(mesure1.get_value(),5.0);
     }
 }

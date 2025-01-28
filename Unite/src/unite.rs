@@ -57,6 +57,24 @@ impl Unite{
         quantite_matiere:0,
         intensité_lumineuse:0
     };
+    pub const TEMPS: Unite=Unite{
+        masse: 0,
+        temps: 1,
+        longueur: 0,
+        temperature:0,
+        intensité_electrique:0,
+        quantite_matiere:0,
+        intensité_lumineuse:0
+    };
+    pub const ACCELERATION:Unite=Unite{
+        masse: 0,
+        temps:-2,
+        longueur: 1,
+        temperature:0,
+        intensité_electrique:0,
+        quantite_matiere:0,
+        intensité_lumineuse:0
+    };
     
 
 }
