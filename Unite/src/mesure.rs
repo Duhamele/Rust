@@ -9,7 +9,6 @@ Div<Output = T> +
 Copy,{
     value:T,
     unite:Unite
- 
 }
 
 impl<T> Mesure<T> where 
@@ -23,7 +22,6 @@ Copy,
         return Mesure{
             value:valeur,
             unite:Unite::NO_UNITE
-            
         }
     }
     pub fn vitesse(valeur:T)->Mesure<T>{
@@ -31,7 +29,6 @@ Copy,
     }
     pub fn distance(valeur:T)->Mesure<T> {
         Mesure { value: valeur, unite: Unite::DISTANCE }
-        
     }
     pub fn get_value(&self)->T{
         return self.value;
@@ -61,16 +58,13 @@ Sub<Output = T> +
 Mul<Output = T> + 
 Div<Output = T> + 
 Copy,  {
-
     fn sub(self, rhs: Self) -> Self::Output {
         if self.unite!=rhs.unite{
             panic!("Addd");
         }
         Self{value:self.value-rhs.value,unite:self.unite}
     }
-    
     type Output=Mesure<T>;
-    
 }
 impl <T> Mul for Mesure<T>
 where T: Add<Output = T> +
@@ -93,7 +87,6 @@ Copy, {
     fn div(self, rhs: Self) -> Self::Output {
         Self{value:self.value/rhs.value,unite:self.unite-rhs.unite}
     }
-    
 }
 impl <T> Display for Mesure<T>
 where T:Display +
@@ -104,7 +97,5 @@ Div<Output = T> +
 Copy,{
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f,"{} {}",self.value,self.unite)
-        
     }
-    
 }

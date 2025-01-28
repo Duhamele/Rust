@@ -1,4 +1,4 @@
-use std::{fmt::{write, Display},  ops::{Add, Sub}, process::id};
+use std::{fmt:: Display,  ops::{Add, Sub}};
 
 #[derive(Debug, PartialEq,Eq,Clone, Copy)]
 pub struct Unite{
@@ -90,78 +90,71 @@ impl Display for Unite {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut premier=true;
         if self.masse!=0 {
-            write!(f,"kg");
+            write!(f,"kg")?;
             if self.masse!=1 {
-                write!(f,"^{}",self.masse);
-            }
-            premier=false;
-        }
-        if self.temps!=0 {
-            if !premier{
-                write!(f,"*");
-            }
-            write!(f,"s");
-            if self.temps!=1 {
-                write!(f,"^{}",self.temps);
+                write!(f,"^{}",self.masse)?;
             }
             premier=false;
         }
         if self.longueur!=0{
             if !premier{
-                write!(f,"*");
+                write!(f,"*")?;
             }
-            write!(f,"m");
+            write!(f,"m")?;
             if self.longueur!=1{
-                write!(f,"^{}",self.longueur);
+                write!(f,"^{}",self.longueur)?;
+            }
+            premier=false;
+        }
+        if self.temps!=0 {
+            if !premier{
+                write!(f,"*")?;
+            }
+            write!(f,"s")?;
+            if self.temps!=1 {
+                write!(f,"^{}",self.temps)?;
             }
             premier=false;
         }
         if self.temperature!=0{
             if !premier{
-                write!(f,"*");
+                write!(f,"*")?;
             }
-            write!(f,"K");
+            write!(f,"K")?;
             if self.temperature!=1{
-                write!(f,"^{}",self.temperature);
+                write!(f,"^{}",self.temperature)?;
             }
             premier=false;
         }
         if self.intensité_electrique!=0{
             if !premier{
-                write!(f,"*");
+                write!(f,"*")?;
             }
-            write!(f,"A");
+            write!(f,"A")?;
             if self.intensité_electrique!=1{
-                write!(f,"^{}",self.intensité_electrique);
+                write!(f,"^{}",self.intensité_electrique)?;
             }
             premier=false;
         }
         if self.quantite_matiere!=0{
             if !premier{
-                write!(f,"*");
+                write!(f,"*")?;
             }
-            write!(f,"mol");
+            write!(f,"mol")?;
             if self.quantite_matiere!=1{
-                write!(f,"^{}",self.quantite_matiere);
+                write!(f,"^{}",self.quantite_matiere)?;
             }
             premier=false;
         }
         if self.intensité_lumineuse!=0{
             if !premier{
-                write!(f,"*");
+                write!(f,"*")?;
             }
-            write!(f,"cd");
+            write!(f,"cd")?;
             if self.intensité_lumineuse!=0{
-                write!(f,"^{}",self.intensité_lumineuse);
+                write!(f,"^{}",self.intensité_lumineuse)?;
             }
         }
         Ok(())
-        
-
-        
-
-
-        
     }
-    
 }
