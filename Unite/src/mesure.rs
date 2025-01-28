@@ -7,8 +7,8 @@ Sub<Output = T> +
 Mul<Output = T> + 
 Div<Output = T> + 
 Copy,{
-    value:T,
-    unite:Unite
+    pub(crate) value:T,
+    pub(crate) unite:Unite
 }
 
 impl<T> Mesure<T> where 

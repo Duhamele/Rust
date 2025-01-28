@@ -2,13 +2,13 @@ use std::{fmt:: Display,  ops::{Add, Sub}};
 
 #[derive(Debug, PartialEq,Eq,Clone, Copy)]
 pub struct Unite{
-    masse:i8,
-    temps:i8,
-    longueur:i8,
-    temperature:i8,
-    intensité_electrique:i8,
-    quantite_matiere:i8,
-    intensité_lumineuse:i8
+    pub(crate) masse:i8,
+    pub(crate) temps:i8,
+    pub(crate) longueur:i8,
+    pub(crate) temperature:i8,
+    pub(crate) intensité_electrique:i8,
+    pub(crate) quantite_matiere:i8,
+    pub(crate) intensité_lumineuse:i8
 
 }
 impl Unite{
