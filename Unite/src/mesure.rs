@@ -1,4 +1,4 @@
-use std::ops::{Add, Sub, Mul, Div};
+use std::{fmt::Display, ops::{Add, Div, Mul, Sub}};
 
 use crate::unite::Unite;
 pub struct Mesure<T> where 
@@ -92,6 +92,19 @@ Copy, {
     type Output = Mesure<T>;
     fn div(self, rhs: Self) -> Self::Output {
         Self{value:self.value/rhs.value,unite:self.unite-rhs.unite}
+    }
+    
+}
+impl <T> Display for Mesure<T>
+where T:Display +
+Add<Output = T> +
+Sub<Output = T> +
+Mul<Output = T> + 
+Div<Output = T> + 
+Copy,{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f,"{} {}",self.value,self.unite)
+        
     }
     
 }
