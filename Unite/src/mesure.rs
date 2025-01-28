@@ -53,7 +53,7 @@ Copy,
         type Output = Mesure<T>;
     fn add(self, rhs: Self) -> Self::Output {
         if self.unite!=rhs.unite{
-            panic!("Addd");
+            panic!("Addition impossible pour deux unite différent");
         }
         Self{value:self.value+rhs.value,unite:self.unite}
     }
@@ -67,7 +67,7 @@ Copy,  {
     type Output=Mesure<T>;
     fn sub(self, rhs: Self) -> Self::Output {
         if self.unite!=rhs.unite{
-            panic!("Addd");
+            panic!("Soustration impossible pour deux unite différent");
         }
         Self{value:self.value-rhs.value,unite:self.unite}
     }
